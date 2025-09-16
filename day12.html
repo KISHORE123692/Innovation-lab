@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let email=new Set([])
+        email.add("js@gmail.com");
+        email.add("python@gamil.com");
+        email.add("java@gmail.com");
+        email.add("javascript@gmail.com");
+       //console.log(email)
+        //email.delete("java@gmail.com");
+       // console.log(email);
+        //email.clear();
+        //console.log(email);
+        //for of
+        for(let mailId of email){
+            console.log(mailId)
+        }
+        email.forEach(x=>{
+            console.log(email)
+        })
+        let adminpermission=new Set(["read","write","delete"]);
+        let userpermission=new Set(["read"]);
+        function haspermisson(Role,permission){
+            return Role.has(permission)
+        }
+        console.log(haspermisson(adminpermission,"delete"));
+        console.log(haspermisson(userpermission,"delete"));
+        //union,intersection ,difference using Sets
+        let setA=new Set([1,2,3,4,5,1]);
+        let setB=new Set([6,7,8,9,2,10]);
+
+        let union=new Set([...setA,...setB])
+        console.log(union);
+        //intersection 
+        let intersection=new Set([...setA].filter(x=>setB.has(x)));
+        console.log(intersection)
+
+        let difference=new Set([...setA].filter(x=>!setB.has(x)));
+        console.log(difference)
+
+        let user1={name:"JavaScript"};
+        let user2={name:"python"}
+        let map=new Map();
+        map.set(user1,"welcome");
+        map.set(user2,"hai python");
+        console.log(map);
+        for(let message of map){
+            console.log(message)
+        }
+    </script>
+</body>
+</html>
