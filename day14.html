@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //pending ->initial state,opertion not completed yet.
+        //fulfilled {resolved} ->operation completed sucessfully
+        //rejected ->operation failed
+        let tossCion=new Promise((resolve,reject)=>{
+            let rand=Math.floor(Math.random()*2)
+            if(rand==0)
+              resolve(rand)
+            else
+              reject(rand)
+
+        })
+        .then((rand)=>console.log(`you win ${rend}`))
+        .catch((rand)=>console.log(`you lose ${rand}`))
+        async function textMessage(){
+            return "Message Sended."
+        }
+        console.log(textMessage())
+        function placeOrder(){
+            return new Promise((resolve,reject)=>{
+                console.log("trying to place order...")
+                setTimeout(() => {
+                    
+                }, 2000);
+            })
+              
+        }
+
+        
+        async function trackDelivery(){
+            const step=(
+                "preparing by delivery partner",
+                "pickedup by delivery partner",
+                "on the way to deliver your order",
+                "order delivery"
+            )
+            for(let step of steps)(
+                await new Promise((res)=>setTimeout(res, 2000))
+                console.log(step);
+            )
+
+        }
+        async function orderStatus(){
+            let status=await placeholder();
+            console.log(status);
+            trackDelivery();
+        
+
+        }
+        orderStatus()
+    </script>
+</body>
+</html>
