@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <TITLe>Fetch API</TITLe>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <h2>List the products</h2>
+    <button onclick="loadata()">load data</button>
+    <div id="output" class="card"></div>
+    <script>
+    function loadata(){
+        fetch('https://fakestoreapi.com/products')
+  .then(response => response.json())
+  .then(data => {
+    const list = data
+    .map(
+        (product)=>
+        `<div class="product">
+        <img src="${product.image}" alt="${product.title}">
+        <p>${product.id}</p>
+      <h3>${product.title}</h3>
+      <p>Price: $${product.price}</p>
+      <p>${product.description}</p>
+      </div>`
+    )
+    .join("");
+    document.getElementById("output").innerHTML=list;
+     
+    } 
+    );
+}
+    </script>
+</body>
+</html>
