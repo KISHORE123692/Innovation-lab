@@ -1,0 +1,47 @@
+import React, { useEffect, useState } from 'react'
+function fakestoreapi(){
+    const [product,setPorduct]=useState([])
+    useEffect(()=>{
+        fetch('https://fakestoreapi.com/products')
+            .then(res=>res.json())            
+            .then((data)=>setPorduct(data))
+
+    },[])
+    return(
+        <div style={Styles.Container}>
+            {product.map((Display)=>(
+                <div key={Display.id} style={Styles.card}>
+                    <img src={Display.image} alt=""style={Styles.img} />
+                    <p><b>Price</b>{Display.price}</p>
+                    <p style={{fontSize:"14px"}}><b>Category</b>{Display.category}</p>
+                    <p style={{fontSize:"14px"}}><b>Description</b>{Display.description}</p>
+                </div>
+            ))}
+            
+
+            </div>
+            
+    
+    )
+}
+const Styles={
+    Container:{
+    Display:"flex",
+    flexWrap:"wrap",
+    gap:"20px",
+    justifyContent:"center"
+    
+    },
+    card:{
+        marin:"20px auto",
+        width:"300px",
+        border:"1px solid",
+        padding:"15px"
+    },
+    img:{
+        height:"100%",
+        width:"200px",
+        objectFit:"Contain"
+    }
+}
+export default fakestoreapi;
